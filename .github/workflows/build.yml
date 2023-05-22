@@ -139,7 +139,7 @@ jobs:
       - name: Download artifacts
         uses: actions/download-artifact@v3
         with:
-          path: ./artifacts
+          path: artifacts
 
       - name: Create draft release
         uses: softprops/action-gh-release@v1
