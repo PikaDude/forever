@@ -36,14 +36,14 @@ pub fn help() {
         .map(|option| option.command.len())
         .max()
         .unwrap()
-        + 4;
+        + 5;
 
     println!("forever v{}", env!("CARGO_PKG_VERSION"));
     println!("usage: forever [options] <command> [command args]");
     println!("options:");
     for option in options {
         println!(
-            "  {:width$} {}",
+            "  {:width$}{}",
             option.command,
             option.description,
             width = longest_command
