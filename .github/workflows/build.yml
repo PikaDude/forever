@@ -142,7 +142,13 @@ jobs:
           path: ./artifacts
 
       - name: Move files
-        run: mkdir out && mv ./artifacts/**/* ./out
+        run: |
+          mkdir out
+          for dir in ./artifacts/*; do
+            for file in $dir/*; do
+              mv $dir/* ./out/${dir##*/}${file##*/forever}
+            done
+          done
 
       - name: Create draft release
         uses: softprops/action-gh-release@v1
