@@ -139,11 +139,14 @@ jobs:
       - name: Download artifacts
         uses: actions/download-artifact@v3
         with:
-          path: artifacts
+          path: ./artifacts
+
+      - name: Move files
+        run: mkdir out && mv ./artifacts/**/* ./out
 
       - name: Create draft release
         uses: softprops/action-gh-release@v1
         with:
           body: A new draft release.
           draft: true
-          files: ./artifacts/*
+          files: ./out/*
