@@ -122,7 +122,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
-          name: "forever-windows-${{ matrix.target.arch }}.exe"
+          name: "forever-windows-${{ matrix.target.arch }}"
           path: "target/${{ matrix.target.name }}/release/forever.exe"
 
   create-release:
